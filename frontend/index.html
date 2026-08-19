@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HH-Goa — Cinematic Voice RAG Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Full-Screen Cinematic Goa Background Video -->
+    <div class="video-background-wrapper">
+        <video id="bg-video" autoplay loop muted playsinline class="bg-video">
+            <source src="/assets/goa-background.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <!-- Optional Ambient Audio Player -->
+    <audio id="ambient-audio" loop preload="auto">
+        <source src="/assets/goa-ambient.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Transparent Minimal Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="brand">
+                <span class="brand-title">HH-Goa <span class="brand-badge">VOICE RAG</span></span>
+                <span class="brand-tagline">Grounded AI • Goa Knowledge Assistant</span>
+            </div>
+            
+            <div class="header-controls">
+                <div class="pill pill-active" id="status-pill">
+                    <span class="pill-dot"></span>
+                    <span id="status-text">SYSTEM ACTIVE</span>
+                </div>
+                
+                <button id="ambient-btn" class="glass-pill-btn" title="Toggle Ambient Audio">
+                    <span id="ambient-icon">🔇</span>
+                    <span id="ambient-text">Ambient</span>
+                </button>
+
+                <button id="knowledge-btn" class="glass-pill-btn glass-pill-accent">
+                    <span>＋ Add Knowledge</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="viewport-container">
+        <!-- Hero & Voice Centerpiece -->
+        <section class="hero-section">
+            <div class="hero-text">
+                <h1 class="hero-title">Ask Goa.</h1>
+                <p class="hero-subtitle">Discover from the source.</p>
+                <p class="hero-description">A voice-powered, document-grounded AI assistant for exploring Goa knowledge.</p>
+            </div>
+
+            <!-- Voice Centerpiece with Ocean Water Ripples -->
+            <div id="voice-centerpiece" class="voice-centerpiece">
+                <div class="ripple-wave wave-1"></div>
+                <div class="ripple-wave wave-2"></div>
+                <div class="ripple-wave wave-3"></div>
+                
+                <button id="mic-btn" class="mic-glass-button idle" aria-label="Tap to speak">
+                    <svg class="mic-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                        <line x1="12" y1="19" x2="12" y2="22"></line>
+                    </svg>
+                </button>
+
+                <div id="mic-status" class="mic-status-label">Tap to speak</div>
+                <div id="recording-timer" class="recording-timer-badge hidden">00:00</div>
+            </div>
+        </section>
+
+        <!-- Response Container (Appears Floating Over Video when Query Submitted) -->
+        <section id="response-sheet" class="response-sheet hidden">
+            <!-- Loading Indicator -->
+            <div id="loading-panel" class="glass-panel loading-panel hidden">
+                <div class="loading-spinner"></div>
+                <p id="loading-text">Understanding your question & searching documents...</p>
+            </div>
+
+            <!-- Error Panel -->
+            <div id="error-panel" class="glass-panel error-panel hidden">
+                <div class="panel-header">
+                    <span>⚠️ Error</span>
+                </div>
+                <p id="error-text"></p>
+            </div>
+
+            <!-- Transcript Panel -->
+            <div id="transcript-panel" class="glass-panel transcript-panel hidden">
+                <div class="panel-meta-title">YOU SAID</div>
+                <p id="transcript-text" class="user-query-text"></p>
+            </div>
+
+            <!-- Grounded Answer Panel -->
+            <div id="answer-panel" class="glass-panel answer-panel">
+                <div class="panel-header">
+                    <span class="panel-tag">GROUNDED ANSWER</span>
+                    <span class="verified-badge">✓ DOCUMENT GROUNDED</span>
+                </div>
+                <div id="answer-text" class="answer-content-body"></div>
+
+                <!-- Source Citations -->
+                <div id="sources-container" class="sources-container hidden">
+                    <div class="sources-header-title">SOURCES</div>
+                    <div id="sources-list" class="sources-pills-grid"></div>
+                </div>
+
+                <!-- Collapsible Retrieved Context Chunks -->
+                <div id="context-accordion" class="accordion-container hidden">
+                    <button id="context-toggle-btn" class="accordion-toggle-btn">
+                        <span id="context-toggle-icon">⌄</span> View retrieved context (<span id="chunks-count">0</span> chunks)
+                    </button>
+                    <div id="context-content" class="accordion-content hidden">
+                        <div id="chunks-list" class="chunks-list"></div>
+                    </div>
+                </div>
+
+                <!-- Expandable Latency Metrics -->
+                <div id="latency-accordion" class="accordion-container hidden">
+                    <button id="latency-toggle-btn" class="accordion-toggle-btn">
+                        <span>⚡ Pipeline Latency: <strong id="total-latency-text">0 ms</strong></span>
+                    </button>
+                    <div id="latency-content" class="accordion-content hidden">
+                        <div id="latency-breakdown-grid" class="latency-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Floating Glass Bottom Query Pill -->
+        <div class="bottom-query-bar">
+            <div class="query-pill-input-box">
+                <input type="text" id="text-input" placeholder="Ask anything about Goa..." autocomplete="off">
+                <button id="send-btn" class="send-pill-btn" title="Send question">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating Knowledge Upload Glass Modal -->
+    <div id="knowledge-modal" class="modal-overlay hidden">
+        <div class="glass-modal">
+            <div class="modal-header">
+                <h2>ADD TO KNOWLEDGE BASE</h2>
+                <button id="close-modal-btn" class="close-modal-btn">✕</button>
+            </div>
+            
+            <div class="modal-body">
+                <div id="upload-dropzone" class="modal-dropzone">
+                    <input type="file" id="file-input" accept=".pdf,.txt,.md,.json,.csv" class="hidden">
+                    <div class="dropzone-icon">📄</div>
+                    <p class="dropzone-title">Drop PDF or document here</p>
+                    <p class="dropzone-sub">or <button type="button" id="browse-btn" class="link-btn">choose a file</button></p>
+                    <p class="dropzone-formats">Supported: PDF, TXT, MD, JSON, CSV (Up to 10 MB)</p>
+                </div>
+
+                <div id="upload-status" class="modal-upload-status hidden">
+                    <div class="progress-bar-track">
+                        <div id="upload-progress-fill" class="progress-bar-fill"></div>
+                    </div>
+                    <p id="upload-status-text" class="status-msg">Indexing document...</p>
+                </div>
+
+                <div id="upload-result" class="modal-result-msg hidden"></div>
+
+                <div class="modal-divider"></div>
+                <div class="modal-danger-zone">
+                    <p class="danger-label">Danger Zone</p>
+                    <button id="clear-kb-btn" class="clear-kb-btn" title="Wipe all indexed documents and start fresh">
+                        🗑 Clear All Knowledge
+                    </button>
+                    <p class="danger-sub">Removes all uploaded documents from the index.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

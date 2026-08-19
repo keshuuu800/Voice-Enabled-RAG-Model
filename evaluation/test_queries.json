@@ -1,0 +1,52 @@
+[
+  {
+    "query": "What is the objective of the HH-Goa scheme?",
+    "expected_sources": ["scheme_overview.txt"],
+    "expected_answer_contains": ["affordable", "housing", "EWS"]
+  },
+  {
+    "query": "Who is eligible for the EWS category?",
+    "expected_sources": ["eligibility.txt"],
+    "expected_answer_contains": ["income", "3 lakh"]
+  },
+  {
+    "query": "What documents are required to apply?",
+    "expected_sources": ["documents.txt"],
+    "expected_answer_contains": ["aadhar", "income certificate"]
+  },
+  {
+    "query": "How much subsidy does an LIG applicant receive?",
+    "expected_sources": ["subsidy.txt"],
+    "expected_answer_contains": ["2.67 lakh"]
+  },
+  {
+    "query": "How can I apply for the scheme?",
+    "expected_sources": ["application.txt"],
+    "expected_answer_contains": ["online", "portal"]
+  },
+  {
+    "query": "What is the income limit for EWS?",
+    "expected_sources": ["eligibility.txt"],
+    "expected_answer_contains": ["3 lakh"]
+  },
+  {
+    "query": "Which talukas are covered under the scheme?",
+    "expected_sources": ["talukas.txt"],
+    "expected_answer_contains": ["bardez", "salcete"]
+  },
+  {
+    "query": "What is the total budget of HH-Goa?",
+    "expected_sources": ["budget.txt"],
+    "expected_answer_contains": ["crore"]
+  },
+  {
+    "query": "What is the construction standard?",
+    "expected_sources": ["construction.txt"],
+    "expected_answer_contains": ["sqm", "carpet area"]
+  },
+  {
+    "query": "How do I raise a grievance?",
+    "expected_sources": ["grievance.txt"],
+    "expected_answer_contains": ["portal", "helpline"]
+  }
+]

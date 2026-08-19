@@ -1,0 +1,42 @@
+HH-Goa Policy Guidelines
+
+Section 1: Introduction
+These guidelines serve as the operational framework for the Harmonious Homes Goa (HH-Goa) scheme, instituted by the Ministry of Housing & Urban Affairs, Goa, in 2023. The framework outlines the rules, responsibilities, and procedural requirements to meet the goal of 12,000 housing units by 2026, targeting EWS and LIG beneficiaries with a total outlay of ₹2,450 crores.
+
+Section 2: Implementation Agencies
+The scheme is jointly implemented by the State Level Nodal Agency (SLNA) and the Urban/Rural Local Bodies (ULBs/RLBs) across the 12 talukas. 
+- The SLNA is responsible for overall fund management, policy directives, and macro-level monitoring.
+- The ULBs/RLBs handle local-level execution, initial document verification, land assessment, and regular inspections of the construction progress.
+
+Section 3: Selection Process
+Selection of beneficiaries strictly adheres to the eligibility criteria:
+1. Registration via the official portal hh-goa.gov.in.
+2. Digital verification of the Aadhaar card and 15-year residency proof.
+3. Automated sorting based on EWS (<₹3 lakh) and LIG (₹3-₹6 lakh) income brackets.
+4. Physical verification by the local Block Development Officer (BDO) or Chief Officer.
+5. Final approval by the District Level Selection Committee (DLSC).
+
+Section 4: Construction Standards
+To ensure structural integrity and environmental compliance:
+- Minimum Built-up Area: EWS units must have a minimum built-up area of 30 sq. meters, and LIG units must have 45 sq. meters.
+- Core Amenities: Every unit must include a dedicated kitchen space, a sanitary toilet, and safe electrical wiring.
+- Eco-friendly Materials: Beneficiaries are encouraged to use laterite stones and fly-ash bricks where applicable to align with Goa’s environmental guidelines.
+
+Section 5: Monitoring and Evaluation
+Progress is tracked through a geo-tagged mobile application used by the local inspectors. 
+Subsidy disbursements (₹2.5 lakh for EWS and ₹1.5 lakh for LIG) are conditionally released based on photographic evidence of construction milestones:
+- Foundation level (30%)
+- Lintel level (40%)
+- Completion level (30%)
+An annual third-party audit will be conducted to evaluate the financial and physical progress of the HH-Goa scheme.
+
+Section 6: Grievance Redressal
+A robust grievance redressal mechanism is established to handle complaints regarding application rejection, subsidy delays, or corruption.
+Applicants can log their grievances on the hh-goa.gov.in portal. The Grievance Redressal Officer (GRO) at the district level is mandated to resolve all raised tickets within 15 working days.
+
+Section 7: Contact Information
+For official correspondence, the SLNA operates from the primary headquarters:
+Ministry of Housing & Urban Affairs, Secretariat, Porvorim, Goa.
+Toll-free Helpdesk: 1800-XXX-XXXX
+Email Support: support@hh-goa.gov.in
+Website: hh-goa.gov.in
