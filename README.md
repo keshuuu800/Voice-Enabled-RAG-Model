@@ -17,7 +17,7 @@ app_port: 7860
 
 > A document-grounded, multi-modal (voice + text) conversational AI assistant for the HH-Goa housing scheme, featuring hybrid retrieval and multi-lingual speech-to-text.
 
-## 🏗️ Architecture Overview
+## 🏗️ Architecture Overview.
 
 The system uses a modern RAG (Retrieval-Augmented Generation) pipeline, enhanced with voice capabilities and hybrid search for superior document retrieval.
 
