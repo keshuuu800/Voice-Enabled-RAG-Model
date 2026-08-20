@@ -1,3 +1,12 @@
+---
+title: HH-Goa Voice RAG
+emoji: 🎙️
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+---
+
 # HH-Goa Voice RAG 🎙️📄
 
 ![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)
