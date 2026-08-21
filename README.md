@@ -199,7 +199,9 @@ The frontend supports direct microphone recording using the browser's `MediaReco
 
 👥 Contributors
 Keshav Gupta — Product, Development & Integration
+
 Soham — Development & Contribution 
+
 Money Goyal — Development & Contribution 
 
 
