@@ -197,7 +197,8 @@ The frontend supports direct microphone recording using the browser's `MediaReco
 - Stream LLM responses via Server-Sent Events (SSE) for better perceived latency.
 - Add user feedback mechanisms (thumbs up/down) for fine-tuning.
 
-👥 Contributors
+👥  Contributors
+
 Keshav Gupta — Product, Development & Integration
 
 Soham — Development & Contribution 
