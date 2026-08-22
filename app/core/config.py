@@ -26,7 +26,7 @@ class Settings(BaseSettings):
     openrouter_base_url: str = "https://openrouter.ai/api/v1"
 
     # ── Embedding ──────────────────────────────────────────────────────────────
-    embedding_model: str = "BAAI/bge-m3"
+    embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     embedding_device: str = "cpu"
 
     # ── Chunking ───────────────────────────────────────────────────────────────
