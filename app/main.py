@@ -89,6 +89,27 @@ async def lifespan(app: FastAPI):
     logger.info(f'ChromaDB chunks: {vector_store.count()}')
     logger.info(f'BM25 ready: {bm25_index.is_ready()}')
     
+    # Detect embedding dimension mismatch (e.g., switching from local 384-dim to Gemini 768-dim).
+    # If stored embeddings have a different dimension than what the current backend produces,
+    # ChromaDB will crash on the first query. Wipe and let users re-upload to fix cleanly.
+    if vector_store.count() > 0:
+        try:
+            probe = vector_store.collection.get(limit=1, include=["embeddings"])
+            stored_dim = len(probe["embeddings"][0]) if probe and probe.get("embeddings") else None
+            sample_emb = embedding_service.embed_query("test")
+            current_dim = len(sample_emb)
+            if stored_dim and stored_dim != current_dim:
+                logger.warning(
+                    f"Embedding dimension mismatch: stored={stored_dim}, current={current_dim}. "
+                    "Wiping ChromaDB collection. Users must re-upload documents."
+                )
+                vector_store.delete_collection()
+                bm25_index._index = None
+                bm25_index._chunks = []
+                bm25_index._tokenized_corpus = []
+        except Exception as dim_err:
+            logger.warning(f"Could not verify embedding dimensions: {dim_err}")
+    
     yield
     
     logger.info('=== Shutting down ===')

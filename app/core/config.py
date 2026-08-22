@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     llm_provider: str = "openrouter"   # "openrouter" | "openai" | "gemini"
     llm_api_key: str = ""
     openrouter_api_key: str = ""
+    gemini_api_key: str = ""   # Used for Gemini LLM + Gemini Embeddings
 
     # ── LLM Models ─────────────────────────────────────────────────────────────
     llm_model: str = "gpt-4o-mini"
@@ -26,7 +27,9 @@ class Settings(BaseSettings):
     openrouter_base_url: str = "https://openrouter.ai/api/v1"
 
     # ── Embedding ──────────────────────────────────────────────────────────────
-    embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
+    # Backend: 'gemini' (API, zero local RAM) | 'local' (SentenceTransformers)
+    embedding_backend: str = "gemini"
+    embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"  # used when backend=local
     embedding_device: str = "cpu"
 
     # ── Chunking ───────────────────────────────────────────────────────────────

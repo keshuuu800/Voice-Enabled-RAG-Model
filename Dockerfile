@@ -4,7 +4,8 @@ FROM python:3.11-slim
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     PORT=7860 \
-    HOST=0.0.0.0
+    HOST=0.0.0.0 \
+    EMBEDDING_BACKEND=gemini
 
 WORKDIR /app
 
@@ -18,8 +19,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Copy requirements first for better layer caching
 COPY requirements.txt .
 
-# Install Python dependencies (using CPU-only torch to stay under 512MB RAM limit)
-RUN pip install --no-cache-dir --extra-index-url https://download.pytorch.org/whl/cpu -r requirements.txt
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy project files
 COPY . .
