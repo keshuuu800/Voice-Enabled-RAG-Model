@@ -15,7 +15,10 @@ class VectorStore:
         self.logger = logging.getLogger(__name__)
         self.persist_path = persist_path
         self.collection_name = collection_name
-        self.client = chromadb.PersistentClient(path=persist_path)
+        self.client = chromadb.PersistentClient(
+            path=persist_path,
+            settings=ChromaSettings(anonymized_telemetry=False)
+        )
         self.collection = self.client.get_or_create_collection(
             name=collection_name, 
             metadata={"hnsw:space": "cosine"}

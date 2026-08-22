@@ -1,0 +1,21 @@
+beneficiary_id,name,district,taluka,category,annual_income,subsidy_sanctioned,application_date,status
+HHG-1001,Rajesh Naik,North Goa,Tiswadi,EWS,250000,250000,2023-05-10,Approved
+HHG-1002,Sunita Fernandes,South Goa,Salcete,LIG,450000,150000,2023-06-12,Disbursed
+HHG-1003,Amit Parsekar,North Goa,Pernem,EWS,180000,250000,2023-07-20,Pending
+HHG-1004,Maria D'Souza,South Goa,Mormugao,LIG,550000,150000,2023-08-05,Under Review
+HHG-1005,Gajanan Dessai,South Goa,Quepem,EWS,210000,250000,2023-09-15,Approved
+HHG-1006,Neha Shetkar,North Goa,Bardez,LIG,400000,150000,2023-10-01,Disbursed
+HHG-1007,Prakash Gawde,North Goa,Sattari,EWS,150000,250000,2023-10-18,Pending
+HHG-1008,Cynthia Costa,South Goa,Dharbandora,LIG,380000,150000,2023-11-02,Approved
+HHG-1009,Ramesh Velip,South Goa,Canacona,EWS,280000,250000,2023-11-20,Under Review
+HHG-1010,Kavita Chodankar,North Goa,Bicholim,LIG,500000,150000,2023-12-05,Disbursed
+HHG-1011,Anil Shirodkar,North Goa,Ponda,EWS,290000,250000,2024-01-10,Approved
+HHG-1012,Fatima Bi,South Goa,Sanguem,LIG,480000,150000,2024-01-25,Pending
+HHG-1013,Suresh Mandrekar,North Goa,Pernem,EWS,220000,250000,2024-02-14,Under Review
+HHG-1014,Lourdes Pereira,South Goa,Salcete,LIG,520000,150000,2024-03-01,Disbursed
+HHG-1015,Tukaram Gaonkar,North Goa,Sattari,EWS,190000,250000,2024-03-15,Approved
+HHG-1016,Pratima Kadam,North Goa,Tiswadi,LIG,410000,150000,2024-04-05,Pending
+HHG-1017,Savio Rodrigues,South Goa,Mormugao,EWS,260000,250000,2024-04-20,Under Review
+HHG-1018,Deepa Prabhu,North Goa,Ponda,LIG,580000,150000,2024-05-10,Approved
+HHG-1019,Vishnu Tari,South Goa,Quepem,EWS,240000,250000,2024-05-22,Pending
+HHG-1020,Meena Borkar,South Goa,Canacona,LIG,460000,150000,2024-06-01,Disbursed

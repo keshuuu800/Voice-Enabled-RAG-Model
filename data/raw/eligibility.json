@@ -1,0 +1,34 @@
+[
+  {
+    "category": "EWS",
+    "income_limit": 300000,
+    "age_limit": 18,
+    "residency_requirement": "15 years in Goa",
+    "land_ownership": "Must not own a pucca house anywhere in India",
+    "subsidy_amount": 250000
+  },
+  {
+    "category": "LIG",
+    "income_limit": 600000,
+    "age_limit": 18,
+    "residency_requirement": "15 years in Goa",
+    "land_ownership": "Must not own a pucca house anywhere in India",
+    "subsidy_amount": 150000
+  },
+  {
+    "category": "MIG-I",
+    "income_limit": 1200000,
+    "age_limit": 18,
+    "residency_requirement": "15 years in Goa",
+    "land_ownership": "Must not own a pucca house anywhere in India",
+    "subsidy_amount": 100000
+  },
+  {
+    "category": "MIG-II",
+    "income_limit": 1800000,
+    "age_limit": 18,
+    "residency_requirement": "15 years in Goa",
+    "land_ownership": "Must not own a pucca house anywhere in India",
+    "subsidy_amount": 50000
+  }
+]
