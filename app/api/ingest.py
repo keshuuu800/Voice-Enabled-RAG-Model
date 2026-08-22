@@ -119,9 +119,11 @@ async def upload_document(
         embeddings = state.embedding_service.embed_documents([c.text for c in new_chunks])
         state.vector_store.add_chunks(new_chunks, embeddings)
         
-        # 6. Rebuild BM25 from ONLY data/raw (user uploads only — no sample docs)
-        all_raw_chunks = ingestion.ingest_directory(str(RAW_DIR))
-        state.bm25_index.build(all_raw_chunks)
+        # 6. Rebuild BM25 by merging existing in-memory chunks with the new ones.
+        #    This avoids re-ingesting all files (which spikes memory on low-RAM hosts).
+        existing_chunks = state.bm25_index._chunks if state.bm25_index.is_ready() else []
+        all_chunks = existing_chunks + new_chunks
+        state.bm25_index.build(all_chunks)
         state.bm25_index.save(state.settings.bm25_path)
         
         logger.info(f"Successfully processed '{file.filename}': {len(new_chunks)} new chunks added")
